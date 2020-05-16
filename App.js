@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import JitsiMeet, {JitsiMeetView} from 'react-native-jitsi-meet';
 
 class App extends React.Component {
@@ -12,7 +12,7 @@ class App extends React.Component {
 
   componentDidMount() {
     setTimeout(() => {
-      const url = 'https://your.jitsi.server/roomName'; // can also be only room name and will connect to jitsi meet servers
+      const url = 'https://meet.jit.si/test000'; // can also be only room name and will connect to jitsi meet servers
       const userInfo = {
         displayName: 'User',
         email: 'user@example.com',
@@ -38,14 +38,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <View style={{backgroundColor: 'black', flex: 1}}>
-        <JitsiMeetView
-          onConferenceTerminated={this.onConferenceTerminated}
-          onConferenceJoined={this.onConferenceJoined}
-          onConferenceWillJoin={this.onConferenceWillJoin}
-          style={{flex: 1, height: '100%', width: '100%'}}
-        />
-      </View>
+      <JitsiMeetView
+        onConferenceTerminated={this.onConferenceTerminated}
+        onConferenceJoined={this.onConferenceJoined}
+        onConferenceWillJoin={this.onConferenceWillJoin}
+        style={{flex: 1, height: '100%', width: '100%'}}
+      />
     );
   }
 }
